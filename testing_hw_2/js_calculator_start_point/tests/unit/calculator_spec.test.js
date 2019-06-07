@@ -9,35 +9,26 @@ describe('calculator', function () {
   // write unit tests here in the form of "it should do something..."
 
   it('should be able to add', () => {
-    calculator.numberClick(1)
-    calculator.operatorClick('+')
-    calculator.numberClick(4)
-    calculator.operatorClick('=')
+    calculator.previousTotal = 1
+    calculator.add(4)
     expect(calculator.runningTotal).toBe(5)
   })
 
   it('should be able to subtract', () => {
-    calculator.numberClick(7)
-    calculator.operatorClick('-')
-    calculator.numberClick(4)
-    calculator.operatorClick('=')
+    calculator.previousTotal = 7
+    calculator.subtract(4)
     expect(calculator.runningTotal).toBe(3)
   })
 
   it('should be able to multiply', () => {
-    calculator.numberClick(3)
-    calculator.operatorClick('*')
-    calculator.numberClick(5)
-    calculator.operatorClick('=')
+    calculator.previousTotal = 3
+    calculator.multiply(5)
     expect(calculator.runningTotal).toBe(15)
   })
 
   it('should be able to divide', () => {
-    calculator.numberClick(2)
-    calculator.numberClick(1)
-    calculator.operatorClick('/')
-    calculator.numberClick(7)
-    calculator.operatorClick('=')
+    calculator.previousTotal = 21
+    calculator.divide(7)
     expect(calculator.runningTotal).toBe(3)
   })
 
