@@ -32,4 +32,30 @@ describe('calculator', function () {
     expect(calculator.runningTotal).toBe(3)
   })
 
+  it('concatenate multiple number button clicks', () => {
+    calculator.numberClick(2)
+    calculator.numberClick(1)
+    expect(calculator.runningTotal).toBe(21)
+  })
+
+  it('chain multiple operations together', () => {
+    calculator.numberClick(2)
+    calculator.operatorClick('*')
+    calculator.numberClick(2)
+    calculator.operatorClick('*')
+    calculator.numberClick(2)
+    calculator.operatorClick('=')
+    expect(calculator.runningTotal).toBe(8)
+  })
+
+  it('clear the running total without affecting the calculation', () => {
+    calculator.numberClick(2)
+    calculator.operatorClick('*')
+    calculator.numberClick(2)
+    calculator.operatorClick('*')
+    calculator.numberClick(2)
+    calculator.clearClick()
+    expect(calculator.runningTotal).toBe(0)
+  })
+
 });
