@@ -20,7 +20,9 @@ Calculator.prototype = {
   },
 
   divide: function(number){
-    this.runningTotal = parseFloat(this.previousTotal) / parseFloat(number);
+    if(number){
+      this.runningTotal = parseFloat(this.previousTotal) / parseFloat(number);
+    } else{ this.runningTotal = 'NaN' }
   },
 
   numberClick: function(number) {
